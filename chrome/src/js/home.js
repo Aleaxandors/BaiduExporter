@@ -77,9 +77,9 @@ class Home extends Downloader {
     window.postMessage({ type: 'getSelected' }, location.origin)
   }
   getPrefixLength () {
-    const path = Core.getHashParameter('list/path') || Core.getHashParameter('path')
+    const path = Core.getHashParameter('/all?path') || Core.getHashParameter('path')
     const fold = Core.getConfigData('fold')
-    if (fold === -1) {
+    if (fold === -1 || path === '/') {
       return 1
     } else {
       const dir = path.split('/')
